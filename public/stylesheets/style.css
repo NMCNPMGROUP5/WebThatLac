@@ -1,0 +1,40 @@
+
+.bg-dblue{
+  background-color: #002447!important;
+}
+
+.bg-gray{
+  background-color:#BDBDBD!important;
+}
+
+.bg-lblue{
+  background-color:#00F0F0!important;
+}
+
+.bg-orange{
+  background-color: #FEB249!important;
+}
+
+.bg-lred{
+  background-color: #FF5D5D!important;
+}
+
+.bg-lgreen{
+  background-color: #00F08B!important;
+}
+
+.DocumentList
+{
+    overflow-x:scroll;
+    overflow-y:hidden;
+    height:200px;
+    width:100%;
+    padding: 0 15px;
+}
+
+.DocumentItem
+{
+    border:1px solid black;
+    padding:0;
+    height:200px;
+}

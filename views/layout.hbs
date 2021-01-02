@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>{{title}}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+
+  {{!-- CSS tự định nghĩa --}}
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  {{!-- bootstrap4 --}}
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  {{!-- font awesome --}}
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+  <!-- web fonts -->
+  <link href="//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&amp;subset=latin-ext"
+    rel="stylesheet">
+  <link
+    href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese"
+    rel="stylesheet">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-dblue">
+
+    <a class="navbar-brand text-white" href="#">
+      <i class="fas fa-igloo fa-2x"></i>
+      <h2 class="d-inline">Thất Lạc</h2>
+    </a>
+
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2 rounded bg-gray" type="search" placeholder="Tìm kiếm bài viết..." aria-label="Search">
+      <button class="btn bg-orange my-2 my-sm-0 " type="submit"><i class="fas fa-search"></i></button>
+    </form>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link text-white " href="#">Trang chủ <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link text-white dropdown-toggle " href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Đăng bài
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white " href="#">Bài tìm đồ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white text-white " href="#">Bài trả đồ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white text-white " href="#">Tin tức</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white " href="#">Trợ giúp</a>
+        </li>
+
+        <li class="nav-item mx-1">
+          <button type="button" class="btn btn-primary">
+            <a class="text-white " href="#">Đăng nhập</a>
+          </button>
+        </li>
+        <li class="nav-item mx-1">
+          <button type="button" class="btn btn-light">
+            <a class="text-secondary " href="#">Đăng ký</a>
+          </button>
+        </li>
+      </ul>
+
+    </div>
+  </nav>
+  {{{body}}}
+
+  <footer class="bg-light text-center text-lg-start">
+    <!-- Copyright -->
+    <div class="bg-dblue text-center p-3 text-white ">
+      <div class="mb-2">
+        <h5 class="mb-0">Website Thất Lạc</h5>
+        <span class="text-muted">Mang đến cho bạn cơ hội tìm lại đồ thất lạc</span>
+      </div>
+      <div class="mb-2">
+        <h5 class="mb-1">Liên hệ với chúng tôi</h5>
+        <a href="#"><i class="text-white fas fa-phone-square-alt fa-2x"></i></a>
+        <a href="#"><i class="text-white fas fa-envelope fa-2x"></i></a>
+       
+        <a href="#"><i class="text-white fab fa-facebook-square fa-2x"></i><br></a>
+        
+      </div>
+      <span>©GROUP05-2020</span>
+    </div>
+    <!-- Copyright -->
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>
