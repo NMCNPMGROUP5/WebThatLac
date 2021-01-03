@@ -1,0 +1,34 @@
+{{#section 'css'}}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="/stylesheets/sign-in.css">
+{{/section}}
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <!-- Tabs Titles -->
+
+        <!-- Icon -->
+        <div class="fadeIn first">
+            <img class="img-fluid img-responsive rounded-circle" src="/images/user.jpg" id="icon" alt="User Icon" />
+        </div>
+
+        <!-- Login Form -->
+        <form action="#" method="POST">
+            <input type="text" id="login" class="fadeIn second" name="username" placeholder="Tên đăng nhập">
+            <input type="password" id="password" class="fadeIn third" name="password" placeholder="Mật khẩu">
+            <div class="thongtin">
+                <input type="checkbox" style="background-color: #FEB249;" id="Luuthongtin">
+                <label for="Luuthongtin" style="color: #C4C4C4">Lưu thông tin</label>
+            </div>
+            <input type="submit" class="fadeIn fourth" value="Đăng nhập">
+        </form>
+
+        <!-- Remind Passowrd -->
+        <div id="formFooter">
+            <a class="underlineHover" id="matkhau" href="/mail/forgetpass">Quên mật khẩu</a>
+            <a class="underlineHover" id="dangky" href="/users/sign-up">Đăng ký</a>
+        </div>
+
+    </div>
+</div>

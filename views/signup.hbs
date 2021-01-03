@@ -1,0 +1,90 @@
+{{#section 'css'}}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="/stylesheets/sign-in.css">
+{{/section}}
+
+
+{{#section 'js'}}
+<!-- password-script -->
+<script>
+    window.onload = function () {
+        document.getElementById("password").onchange = validatePassword;
+        document.getElementById("confirm_password").onchange = validatePassword;
+        document.getElementById("email").onchange = validatePassword;
+    }
+
+
+    function validatePassword(event) {
+        console.log("EMAIL");
+        var pass2 = document.getElementById("confirm_password").value;
+        var pass1 = document.getElementById("password").value;
+        if (pass1 != pass2) {
+            event.preventDefault();
+            document.getElementById("warning_password").style.display = "block";
+        }
+        else
+            document.getElementById("warning_password").style.display = "none";
+        //empty string means no validation error
+    }
+
+</script>
+<!-- //password-script -->
+{{/section}}
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <!-- Tabs Titles -->
+
+        <!-- Icon -->
+        <div class="fadeIn first">
+            <div class="title">
+                <i class="fas fa-igloo fa-2x text-white"></i>
+                <h2 class="title_formsignup">Đăng ký tài khoản</h2>
+            </div>
+        </div>
+
+        <!-- Warning -->
+        <div class="warning">
+            <div class="row">
+                {{#if isFailUser}}
+                <h5 class="text-danger"><i class="fa fa-warning"></i> Tên đăng nhập đã tồn tại</h5>
+                {{/if}}
+            </div>
+            <div class="row">
+                {{#if isFailEmail}}
+                <h5 class="text-danger"><i class="fa fa-warning"></i> Email đã được sử dụng cho tài khoản khác</h5>
+                {{/if}}
+            </div>
+            <div class="row">
+                {{#if notExistEmail}}
+                <h5 class="text-danger"><i class="fa fa-warning"></i> Email không tồn tại</h5>
+                {{/if}}
+            </div>
+            <div class="row" style="display: none" id="warning_password">
+                <h5 class="text-danger"><i class="fa fa-warning"></i> Mật khẩu không trùng nhau</h5>
+            </div>
+        </div>
+
+
+
+
+        <!-- Login Form -->
+        <form action="/users/sign-up" method="POST" onsubmit="return validatePassword(event)">
+            <input type="text" id="name" class="fadeIn second" name="name" placeholder="Họ tên" value={{name}}>
+            <input type="text" id="email" class="fadeIn third" name="email" placeholder="Email" value={{email}}>
+            <input type="text" id="tel" class="fadeIn second" name="tel" placeholder="Số điện thoại" value={{tel}}>
+            <input type="text" id="address" class="fadeIn third" name="address" placeholder="Địa chỉ" value={{address}}>
+            <input type="password" id="password" class="fadeIn second" name="password" placeholder="Mật khẩu"
+                value={{password}}>
+            <input type="password" id="confirm_password" class="fadeIn third" name="confirm-password"
+                placeholder="Nhập lại mật khẩu" value={{password}}>
+
+            <input type="submit" class="fadeIn fourth" value="Đăng ký">
+        </form>
+
+
+    </div>
+</div>

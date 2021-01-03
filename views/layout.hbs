@@ -9,7 +9,7 @@
   {{!-- CSS tự định nghĩa --}}
   <link rel="stylesheet" href="/stylesheets/style.css">
   {{!-- bootstrap4 --}}
-  
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   {{!-- font awesome --}}
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
@@ -19,18 +19,20 @@
   <link
     href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese"
     rel="stylesheet">
+  {{{_sections.css}}}
 </head>
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-dblue">
 
-    <a class="navbar-brand text-white" href="#">
+    <a class="navbar-brand text-white" href="/">
       <i class="fas fa-igloo fa-2x"></i>
       <h2 class="d-inline">Thất Lạc</h2>
     </a>
 
     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2 rounded bg-gray" type="search" placeholder="Tìm kiếm bài viết..." aria-label="Search">
+      <input class="form-control mr-sm-2 rounded bg-gray" type="search" placeholder="Tìm kiếm bài viết..."
+        aria-label="Search">
       <button class="btn bg-orange my-2 my-sm-0 " type="submit"><i class="fas fa-search"></i></button>
     </form>
 
@@ -41,11 +43,11 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-          <a class="nav-link text-white " href="#">Trang chủ <span class="sr-only">(current)</span></a>
+          <a class="nav-link text-white " href="/">Trang chủ <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link text-white dropdown-toggle " href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link text-white dropdown-toggle " href="#" id="navbarDropdown" role="button"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Đăng bài
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -67,17 +69,30 @@
         <li class="nav-item">
           <a class="nav-link text-white " href="#">Trợ giúp</a>
         </li>
-
+        {{#if user}}
+        <li class="nav-item dropdown">
+          <a class="text-white nav-link" href="#" role="button" data-toggle="dropdown"
+          data-toggle="dropdown" aria-haspopup="true">
+            <i class="fas fa-user-circle"></i> Tài khoản</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <p class="dropdown-item"><b>Hello {{user.name}}!</b></p>
+            <a class="dropdown-item" href="/users/edit/{{user._id}}">Profile</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/users/logout">Log out</a>
+          </div>
+        </li>
+        {{else}}
         <li class="nav-item mx-1">
           <button type="button" class="btn btn-primary">
-            <a class="text-white " href="#">Đăng nhập</a>
+            <a class="text-white " href="/users/sign-in">Đăng nhập</a>
           </button>
         </li>
         <li class="nav-item mx-1">
           <button type="button" class="btn btn-light">
-            <a class="text-secondary " href="#">Đăng ký</a>
+            <a class="text-secondary " href="/users/sign-up">Đăng ký</a>
           </button>
         </li>
+        {{/if}}
       </ul>
 
     </div>
@@ -95,9 +110,9 @@
         <h5 class="mb-1">Liên hệ với chúng tôi</h5>
         <a href="#"><i class="text-white fas fa-phone-square-alt fa-2x"></i></a>
         <a href="#"><i class="text-white fas fa-envelope fa-2x"></i></a>
-       
+
         <a href="#"><i class="text-white fab fa-facebook-square fa-2x"></i><br></a>
-        
+
       </div>
       <span>©GROUP05-2020</span>
     </div>
@@ -107,6 +122,8 @@
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+  {{{_sections.js}}}
 </body>
 
 </html>

@@ -1,0 +1,35 @@
+{{#section 'css'}}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="/stylesheets/sign-in.css">
+{{/section}}
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <!-- Tabs Titles -->
+
+        <!-- Icon -->
+        <div class="fadeIn first">
+            <div class="title">
+                <i class="fas fa-igloo fa-2x text-white"></i>
+                <h2 class="title_formsignup">Xác nhận</h2>
+            </div>
+        </div>
+
+        <!-- Warning -->
+        <div class="row" style="display: block">
+            <h5 class="text-danger"><i class="fa fa-warning"></i> Bạn còn {{count}} lần để nhập mã xác nhận </h5>
+        </div>
+
+
+
+        <!-- Verify Form -->
+        <form action="/mail/verify" method="POST" onsubmit="return validatePassword(event)">
+            <input type="text" id="maxacnhan" class="fadeIn second" name="maxacnhan" placeholder="Mã xác nhận">
+            <input type="submit" class="fadeIn fourth" value="Xác nhận">
+        </form>
+
+    </div>
+</div>
