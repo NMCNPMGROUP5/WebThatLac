@@ -1,8 +1,6 @@
 const mongoose=require("mongoose");
 
-console.log("db.js 1");
-
-const uri = 'mongodb+srv://hexad:%23Dd18212227@cluster0.ecnii.mongodb.net/StoreManager?retryWrites=true&w=majority';
+const uri = 'mongodb+srv://nmcnpmG5:nmcnpmG5@cluster.augp3.mongodb.net/ThatLac?retryWrites=true&w=majority';
 
 const connectDB = async()=>{
     try {
@@ -18,5 +16,4 @@ const connectDB = async()=>{
     }
 }
 
-module.exports=connectDB 
-
+module.exports=connectDB

@@ -15,6 +15,7 @@ var usersRouter = require('./routes/users');
 const mailerRouter = require('./routes/mailer');
 const connectDB = require('./data/db');
 const passport = require('./passport/passport');
+const postsRouter = require('./routes/posts');
 
 
 connectDB();
@@ -64,6 +65,7 @@ app.use(function (req, res, next) {
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/mail', mailerRouter);
+app.use('/posts', postsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

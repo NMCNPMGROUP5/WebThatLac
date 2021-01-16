@@ -1,0 +1,99 @@
+<!-- DataTales Example -->
+<div class="container mt-4">
+    {{#if isSaved}}
+    <div class="h3 font-italic mb-4"><i class="fas fa-check-circle text-success"></i> Bài viết của bạn đã được gửi thành
+        công!</div>
+    {{/if}}
+
+    <div class="card shadow mb-4">
+
+        <div class="card-header py-3">
+            <h4 class="m-0 font-weight-bold">Đăng bài</h4>
+            <br>
+        </div>
+        <div class="card-body">
+            <div class="container">
+                <form action="/posts/add-post/{{postTypeID}}" method="POST" enctype="multipart/form-data" id="add-post-form">
+                    <input type="hidden" value="" name="accountID" id="form-accountID">
+                    <input type="hidden" value="{{postTypeID}}" name="postTypeID">
+                    <div class="row">
+                        <!--Thông tin chung-->
+                        <div class="form-row col-lg-6 col-12 h-100">
+                            <div class="form-row col-12">
+                                <div class="form-group col-12">
+                                    <label for="postTitle">Tiêu đề (Giới hạn 50 ký tự):</label>
+                                    <input type="text" class="form-control" placeholder="" id="postTitle"
+                                        name="postTitle" maxlength="50" required>
+                                </div>
+                            </div>
+                            <div class="form-row col-12">
+                                <div class="form-group col-lg-6">
+                                    <label for="itemType">Loại đồ vật:</label>
+                                    <select class="custom-select mr-sm-2" id="itemType" name="itemType"
+                                        form="add-post-form" required>
+                                        <option selected value="" style="display: none">Chọn</option>
+                                        {{#each itemType}}
+                                        <option value={{_id}}>{{typeName}}</option>
+                                        {{/each}}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row col-12">
+                                <div class="form-group col-12">
+                                    <label for="fullName">Tên gọi chi tiết:</label>
+                                    <input type="text" class="form-control" placeholder="" id="fullName"
+                                        name="fullName" required>
+                                </div>
+                            </div>
+                            <div class="form-row col-12">
+                                <div class="form-group col-12">
+                                    <label for="describeArea">Khu vực:</label>
+                                    <textarea class="form-control col-12" placeholder="" id="describeArea"
+                                        name="describeArea" form="add-post-form" required></textarea>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="form-row col-lg-6 col-12 h-100">
+                            <div class="form-row col-12">
+                                <div class="form-group col-12">
+                                    <label for="describeIncident">Mô tả:</label>
+                                    <textarea class="form-control col-12" placeholder="" id="describeIncident"
+                                        name="describeIncident" form="add-post-form" style="height: 123px;"
+                                        required></textarea>
+                                </div>
+                            </div>
+                            <div class="form-row col-12">
+                                <div class="form-group col-12">
+                                    <label for="idCharacteristics">Đặc điểm: </label>
+                                    <input type="text" class="form-control" placeholder="" id="idCharacteristics"
+                                        name="idCharacteristics" required>
+                                </div>
+                            </div>
+                            <div class="form-group col-12">
+                                <label for="productImg">Ảnh đồ vật:</label>
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input mb-3" id="productImg" name="filename"
+                                        onchange="readOneURL(this);" accept="image/*" required>
+                                    <img class="mb-5" id="previewImg" src="#" alt="Ảnh" width="100px" height="150px"
+                                        style="display: none;" />
+                                    <label class="custom-file-label text-truncate" for="customFile"></label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-group mt-5">
+                        <button type="submit" class="btn btn-primary mr-2">Gửi</button>
+                        <a class="btn btn-danger" href="/list-products">Hủy</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{#section 'js'}}
+<script src="/js/custom.js"></script>
+{{/section}}

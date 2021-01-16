@@ -1,0 +1,18 @@
+[
+    {
+        "idPost": {
+            "$oid": "6001cf667f1200746f8c0fe5"
+        },
+        "idType": {
+            "$oid": "60024be8b349716212697463"
+        },
+        "idAccount": {
+            "$oid": "6001d0db7f1200746f8c0fe9"
+        },
+        "image": "https://cdn.tgdd.vn/Products/Images/42/213033/iphone-12-pro-max-xanh-duong-new-600x600-600x600.jpg",
+        "description": "Mất trên đường từ trường về ktx",
+        "area": "HCMUS, UI",
+        "idCharacteristics": "Có sticker màu xanh trên ốp lưng",
+        "fullName": "Điện thoại iPhone 12 Pro Max 128GB"  
+    }
+]

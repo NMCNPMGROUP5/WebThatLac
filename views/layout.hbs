@@ -51,10 +51,14 @@
             Đăng bài
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
+            {{#each postType}}
+              <a class="dropdown-item" href="/posts/add-post/{{_id}}">{{typeName}}</a>
+            {{/each}}
+            {{!-- <a class="dropdown-item" href="/posts/add-post">{{}}</a>
+            <a class="dropdown-item" href="#">Trả đồ</a>
+            <a class="dropdown-item" href="#">Tin tức</a> --}}
+            {{!-- <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a> --}}
           </div>
         </li>
         <li class="nav-item">
@@ -69,8 +73,10 @@
         <li class="nav-item">
           <a class="nav-link text-white " href="#">Trợ giúp</a>
         </li>
+        <input type="hidden" value="6001d0db7f1200746f8c0fe9" id="accountID">
         {{#if user}}
         <li class="nav-item dropdown">
+          
           <a class="text-white nav-link" href="#" role="button" data-toggle="dropdown"
           data-toggle="dropdown" aria-haspopup="true">
             <i class="fas fa-user-circle"></i> Tài khoản</a>
