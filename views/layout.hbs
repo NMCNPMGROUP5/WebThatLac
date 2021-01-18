@@ -19,6 +19,9 @@
   <link
     href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese"
     rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  
   {{{_sections.css}}}
 </head>
 
@@ -73,10 +76,10 @@
         <li class="nav-item">
           <a class="nav-link text-white " href="#">Trợ giúp</a>
         </li>
-        <input type="hidden" value="6001d0db7f1200746f8c0fe9" id="accountID">
+        
         {{#if user}}
         <li class="nav-item dropdown">
-          
+          {{!-- <input type="hidden" value="600550d13046280b202efa4a" id="accountID"> --}}
           <a class="text-white nav-link" href="#" role="button" data-toggle="dropdown"
           data-toggle="dropdown" aria-haspopup="true">
             <i class="fas fa-user-circle"></i> Tài khoản</a>
@@ -127,7 +130,7 @@
 
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-  <script script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
   {{{_sections.js}}}
 </body>

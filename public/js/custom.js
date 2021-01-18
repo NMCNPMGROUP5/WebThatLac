@@ -18,16 +18,35 @@ function readOneURL(input) {
     }
 }
 
-function getAccountID() {
-    const id = document.getElementById("accountID");
-    //alert(id);
+// function getAccountID() {
+//     const id = document.getElementById("accountID");
+//     //alert(id);
 
-    if (id){
-        document.getElementById("form-accountID").value = id.value;
-    }
+//     if (id){
+//         document.getElementById("form-accountID").value = id.value;
+//     }
    
+// }
+
+function setPostTitleSize(){
+    //alert($(window).width());
+    if (($(window).width()) > 960){
+        const postTitle = $(".postTitle");
+            console.log(postTitle.length);
+        for (let i = 0; i < postTitle.length; i++){
+            if ($(".postTitle").width() >= 500) {
+                $(".postTitle")[i].removeClass( "col-md-auto" ).addClass( "col-md-9" );
+            }
+        }
+    }
 }
 
 $(document).ready(function(){
-    getAccountID();
+    //getAccountID();
+
+    //Ngăn yêu cầu gửi lại form khi nhấn refresh
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+
 });

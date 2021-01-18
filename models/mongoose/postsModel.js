@@ -3,11 +3,11 @@ const Schema = mongoose.Schema();
 //const mongoosePaginate = require('mongoose-paginate-v2');
 
 const postSchema = mongoose.Schema({
-    idAccount: {type: mongoose.Schema.Types.ObjectId , require: true, ref: 'Account'},
+    idAccount: {type: mongoose.Schema.Types.ObjectId , require: true, ref: 'users'},
     postState: {type: String, default: "Chưa duyệt", require: true},
     idPostType: {type: mongoose.Schema.Types.ObjectId , require: true, ref: 'PostType'},
     postContent: {type: String, require: true},
-    postDate: {type: Date, default: Date.now()},
+    postDate: {type: Date, default: Date.now(), require: true},
 });
 
 const postTypeSchema = mongoose.Schema({

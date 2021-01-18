@@ -4,7 +4,7 @@ const Schema = mongoose.Schema();
 
 const itemSchema = mongoose.Schema({
     idPost: {type: mongoose.Schema.Types.ObjectId , require: true, ref: 'Post'},
-    idAccount: {type: mongoose.Schema.Types.ObjectId , require: true, ref: 'Account'},
+    idAccount: {type: mongoose.Schema.Types.ObjectId , require: true, ref: 'users'},
     idType: {type: mongoose.Schema.Types.ObjectId , require: true, ref: 'ItemType'},
     image: {type: String, require: true},
     description: {type: String, require: true},

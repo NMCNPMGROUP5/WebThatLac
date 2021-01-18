@@ -6,24 +6,22 @@
     {{/if}}
 
     <div class="card shadow mb-4">
-
         <div class="card-header py-3">
             <h4 class="m-0 font-weight-bold">Đăng bài</h4>
-            <br>
         </div>
         <div class="card-body">
             <div class="container">
                 <form action="/posts/add-post/{{postTypeID}}" method="POST" enctype="multipart/form-data" id="add-post-form">
-                    <input type="hidden" value="" name="accountID" id="form-accountID">
+                    {{!-- <input type="hidden" value="" name="accountID" id="form-accountID"> --}}
                     <input type="hidden" value="{{postTypeID}}" name="postTypeID">
                     <div class="row">
                         <!--Thông tin chung-->
                         <div class="form-row col-lg-6 col-12 h-100">
                             <div class="form-row col-12">
                                 <div class="form-group col-12">
-                                    <label for="postTitle">Tiêu đề (Giới hạn 50 ký tự):</label>
+                                    <label for="postTitle">Tiêu đề (Giới hạn 100 ký tự):</label>
                                     <input type="text" class="form-control" placeholder="" id="postTitle"
-                                        name="postTitle" maxlength="50" required>
+                                        name="postTitle" maxlength="100" required>
                                 </div>
                             </div>
                             <div class="form-row col-12">

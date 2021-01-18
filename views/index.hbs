@@ -6,58 +6,74 @@
 
     </div>
 
-    <div class="row my-2">
-        {{!-- List các bài đăng --}}
-        <div class="col-lg-8 my-2">
-            <div class="border border rounded">
-                <div id="header" class="d-flex justify-content-between">
-                    <h5 class="d-inline-block bg-lred py-3 px-4">Mất điện thoại</h5>
+    <div class="row">
+        <div class="col-lg-9 ml-auto my-2">
+            {{!-- List các bài đăng --}}
+            {{#each listPosts}}
+            <div class="card shadow mb-4 rounded border-0">
 
-                    <span class="m-4">Đăng ngày 20/12/2020</span>
-                </div>
-                <div class="mx-4 my-2">
-                    <div>
-                        <img class="img-fluid img-responsive rounded-circle mr-3" src="/images/user.jpg" width="60">
-                        <span class="mb-1 mr-2 font-weight-bold">Nguyễn Văn A</span>
+                <div class="card-header border-0 bg-white" style="padding: 0 !important;">
+                    <div class="container">
+                        <div id="header" class="row">
+                            <div class="col-md-9 font-weight-bold d-flex align-items-center pt-3 pb-3 pr-5 post-title-border-rounded"
+                                style="background: #FF5D5D!important;">
+                                {{idPost.postContent}}
+                            </div>
+
+                            <div class="col-md-3 ml-auto d-flex align-items-center">{{idPost.postDate}}</div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="row my-2">
-                    <div class="col-lg-5 mx-4">
-                        <img src="/images/b.jpg" class="img-fluid" width="300">
-                    </div>
-                    <div class="col-lg-6">
-                        <table>
-                            <tr >
-                                <td class="pr-3 pb-4"><i class="fas fa-address-card"></i></td>
-                                <td class="pb-4">Loại: Samsung J</td>
-                            </tr>
-                            <tr>
-                                <td class="pr-3 pb-4"><i class="fas fa-map-marked-alt"></i></td>
-                                <td class="pb-4">Khu vực: Đường từ trường Đại học Khoa học tự nhiên đến trường Đại học Quốc tế</td>
-                            </tr>
-                            <tr>
-                                <td class="pr-3 pb-4"><i class="fas fa-star"></i></td>
-                                <td class="pb-4">Đặc điểm riêng: Có ticker màu xanh ở trên ốp lưng</td>
-                            </tr>
-                            <tr>
-                                <td class="pr-3 pb-4"><i class="fas fa-align-left"></i></td>
-                                <td class="pb-4">Mô tả: Vào lúc ... mình có tham gia hoạt động.............</td>
-                            </tr>
+                <div class="card-body rounded">
+                    <div class="container">
+                        <div class="mx-4 my-2">
+                            <div>
+                                <img class="img-fluid img-responsive rounded-circle mr-3" src="{{idAccount.avatar}}"
+                                    width="60">
+                                <span class="mb-1 mr-2 font-weight-bold">{{idAccount.name}}</span>
+                            </div>
+                        </div>
 
-                        </table>
+                        <div class="row mt-4 mb-4">
+                            <div class="col-lg-5">
+                                <img src="{{image}}" class="img-fluid" width="300">
+                            </div>
+                            <div class="col-lg-7 align-self-center">
+                                <div class="m-auto">
+                                    <div class="row mt-3 mb-3">
+                                        <div class="col-1"><i class="fas fa-address-card"></i></div>
+                                        <div class="col-10 ellipsis">Loại: {{fullName}}</div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-1"><i class="fas fa-map-marked-alt"></i></div>
+                                        <div class="col-10 ellipsis">Khu vực: {{area}}</div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-1"><i class="fas fa-star"></i></div>
+                                        <div class="col-10 ellipsis">Đặc điểm riêng: {{idCharacteristics}}</div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-1"><i class="fas fa-align-left"></i></div>
+                                        <div class="col-10 ellipsis">Mô tả: {{description}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="button" class="btn btn-secondary">Xem thêm</button>
+                        </div>
                     </div>
-                </div>
-                <div class="w-100">
-                    <button type="button" class="btn btn-secondary">Xem thêm</button>
                 </div>
             </div>
+            {{/each}}
+            {{!-- //List các bài đăng --}}
         </div>
-        {{!-- //List các bài đăng --}}
 
         {{!-- Thành viên tích cực --}}
-        <div class="col-lg-3 ml-auto my-2 px-0 text-center border rounded shadow">
-            <div class="py-3 bg-dblue text-white">
+        <div class="col-lg-3 ml-auto my-2 px-0 text-center border rounded shadow" style="height: fit-content;">
+            <div class="py-3 bg-dblue text-white rounded-top">
                 <h5 class="">Thành viên tích cực</h5>
             </div>
             <div class="listMember my-2">
@@ -108,9 +124,11 @@
                     </div>
                 </div>
             </div>
-
         </div>
         {{!-- //Thành viên tích cực --}}
     </div>
 
 </div>
+{{#section 'js'}}
+<script src="/js/custom.js"></script>
+{{/section}}

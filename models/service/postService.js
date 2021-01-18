@@ -12,8 +12,21 @@ cloudinary.config({
 const postsModel = require("../mongoose/postsModel");
 const itemModel = require("../mongoose/itemModel");
 
-exports.displayListPost = async (req, res, next) => {
+exports.getListPosts = async (req, res, next) => {
+    const listPosts = await itemModel.itemModel.find({})
+        .populate({ path: "idAccount" })
+        .exec().then(async (docs) => {
+            const options = [{
+                path: "idPost",
+                model: "Post",
+            }]
 
+            const result = await postsModel.postModel.populate(docs, options);
+            //console.log("listPosts: " + result);
+            return result;
+        });
+
+    return listPosts;
 }
 
 exports.getPostTypes = async (req, res, next) => {
@@ -59,22 +72,30 @@ exports.addPost = async (req, res, next) => {
 
             if (coverImg && coverImg.size > 0) {
                 const imgLink = await this.uploadImg(coverImg, 'itemImages');
+                //const imgLink = "#";
                 //console.log("arr: " + imgLink);
+                console.log(req.user);
+                const accountID = req.user._id;
 
                 const newPost = new postsModel.postModel({
-                    idAccount: fields.accountID,
+                    //idAccount: fields.accountID,
+                    idAccount: accountID,
                     idPostType: req.params.id,
                     postContent: fields.postTitle,
                 })
 
-                const id = await newPost.save((err, id)=>{
-                    return id;
-                });
+                let idPost;
+                await newPost.save()
+                    .then((id) => {
+                        //console.log("id: " + id._id);
+                        idPost = id._id;
+                    });
 
                 const newItem = new itemModel.itemModel({
-                    idAccount: fields.accountID,
+                    //idAccount: fields.accountID,
+                    idAccount: accountID,
                     idType: fields.itemType,
-                    idPost: id,
+                    idPost: idPost,
                     image: imgLink,
                     description: fields.describeIncident,
                     area: fields.describeArea,
