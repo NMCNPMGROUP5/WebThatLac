@@ -41,6 +41,7 @@ exports.checkUserInDatabase = async (req, res, next) => {
         }
         res.render("signup", {
             name: req.body.name,
+            username: req.body.username,
             email: req.body.email,
             password: req.body.password,
             tel: req.body.tel,
