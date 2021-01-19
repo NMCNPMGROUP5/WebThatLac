@@ -10,24 +10,73 @@
 {{#section 'js'}}
 <!-- password-script -->
 <script>
-    window.onload = function () {
-        document.getElementById("password").onchange = validatePassword;
-        document.getElementById("confirm_password").onchange = validatePassword;
-        document.getElementById("email").onchange = validatePassword;
+    function kiemtraEmailHopLe() {
+        var email = document.getElementById("email");
+        var filter = /^([\w\.])+@([a-zA-Z0-9\-])+\.([a-zA-Z]{2,4})(\.[a-zA-Z]{2,4})?$/;
+        if (!filter.test(email.value)) {
+            return false;
+        }
+        else {
+            return true;
+        }
     }
 
+    function kiemtraMatKhauHopLe() {
+        var pass = document.getElementById("password");
+        var filter = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
 
-    function validatePassword(event) {
-        console.log("EMAIL");
-        var pass2 = document.getElementById("confirm_password").value;
-        var pass1 = document.getElementById("password").value;
-        if (pass1 != pass2) {
-            event.preventDefault();
-            document.getElementById("warning_password").style.display = "block";
+        if (!filter.test(pass.value)) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+
+    function checkOldPassword() {
+        const password = document.getElementById("pass").value;
+        const oldPassword = document.getElementById("oldPassword").value;
+
+        if (password != oldPassword) {
+            document.getElementById("warning_wrong_password").style.display = "block";
         }
         else
-            document.getElementById("warning_password").style.display = "none";
+            document.getElementById("warning_wrong_password").style.display = "none";
+    }
+
+    function validatePassword(event) {
+        var isCorrectEmail = kiemtraEmailHopLe();
+        var isCorrectPass = kiemtraMatKhauHopLe();
+        var pass2 = document.getElementById("confirm_password").value;
+        var pass1 = document.getElementById("password").value;
+
+        if (isCorrectEmail == false) {
+            event.preventDefault();
+            document.getElementById("warning_email").style.display = "block";
+        }
+        else {
+            document.getElementById("warning_email").style.display = "none";
+        }
+        if (isCorrectPass == false) {
+            event.preventDefault();
+            document.getElementById("warning_invalid_pass").style.display = "block";
+        }
+        else {
+            document.getElementById("warning_invalid_pass").style.display = "none";
+        }
+
+        if (pass1 != pass2) {
+            event.preventDefault();
+            document.getElementById("warning_password_mismatch").style.display = "block";
+        }
+        else
+            document.getElementById("warning_password_mismatch").style.display = "none";
         //empty string means no validation error
+        //} else {
+        //    event.preventDefault();
+        //}
+
+
     }
 
 </script>
@@ -63,8 +112,16 @@
                 <h5 class="text-danger"><i class="fa fa-warning"></i> Email không tồn tại</h5>
                 {{/if}}
             </div>
-            <div class="row" style="display: none" id="warning_password">
+            <div class="row" style="display: none" id="warning_password_mismatch">
                 <h5 class="text-danger"><i class="fa fa-warning"></i> Mật khẩu không trùng nhau</h5>
+            </div>
+            <div class="row" style="display: none" id="warning_invalid_pass">
+                <h5 class="text-danger"><i class="fa fa-warning"></i> Mật
+                    khẩu tối thiểu có 8 ký tự, ít nhất
+                    1 chữ cái, 1 chữ số và 1 ký tự đặc biệt</h5>
+            </div>
+            <div class="row" style="display: none" id="warning_email">
+                <h5 class="text-danger"><i class="fa fa-warning"></i> Email không chính xác</h5>
             </div>
         </div>
 
@@ -74,6 +131,8 @@
         <!-- Login Form -->
         <form action="/users/sign-up" method="POST" onsubmit="return validatePassword(event)">
             <input type="text" id="name" class="fadeIn second" name="name" placeholder="Họ tên" value={{name}}>
+            <input type="text" id="username" class="fadeIn second" name="username" placeholder="Tên đăng nhập"
+                value={{username}}>
             <input type="text" id="email" class="fadeIn third" name="email" placeholder="Email" value={{email}}>
             <input type="text" id="tel" class="fadeIn second" name="tel" placeholder="Số điện thoại" value={{tel}}>
             <input type="text" id="address" class="fadeIn third" name="address" placeholder="Địa chỉ" value={{address}}>

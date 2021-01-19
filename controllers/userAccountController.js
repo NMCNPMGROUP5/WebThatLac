@@ -25,7 +25,7 @@ exports.displayAccInfo = async (req, res, next) => {
     res.render('userProfile', {accountInfo, 
         genderSelector, 
         setActiveChangePassTab: false,
-        postType,
+        postType
         //listOrder: listOrder,
         //isEmpty: listOrder.length<=0,
         });

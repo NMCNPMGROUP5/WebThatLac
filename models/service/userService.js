@@ -88,8 +88,9 @@ exports.checkUserRegister = async (req, res, next) => {
 
 exports.checkUser = async (username, password) => {
     console.log("VAO CHECKUSER")
+    console.log(username)
     const user = await userModel.findOne({ name: username })
-
+    console.log(user)
 
     if (!user) {
         return false;
@@ -117,9 +118,12 @@ exports.saveTemporaryAccount = async (req, res, next) => {
     })
 
     accountdata = {
-        name: req.body.name,
+        name: req.body.username,
+        userName: req.body.name,
         password: hashedPassword,
         email: req.body.email,
+        phoneNumber: req.body.tel,
+        address: req.body.address,
         avatar: 'http://ssl.gstatic.com/accounts/ui/avatar_2x.png',
     };
 }
