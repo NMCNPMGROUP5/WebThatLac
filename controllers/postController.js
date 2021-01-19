@@ -20,7 +20,10 @@ exports.addPost = async (req, res, next) => {
 }
 
 exports.displayListPosts = async(req, res, next)=>{
+    const searchValue = req.query.searchValue;
+
+    console.log(searchValue);
     const postType = await postService.getPostTypes();
-    const listPosts = await postService.getListPosts();
+    const listPosts = await postService.getListPosts(req,res,next);
     res.render('index', {title: 'Thất lạc', postType, listPosts});
 }

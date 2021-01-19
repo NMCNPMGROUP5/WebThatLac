@@ -51,10 +51,10 @@ exports.checkUserRegister = async (req, res, next) => {
     //console.log(emailValid.validators.smtp.reason);
     console.log(emailValid);
 
-    while(emailValid.validMailbox == null)
-    {
-        emailValid = await EmailValidator.verify(req.body.email);
-    }
+    // while(emailValid.validMailbox == null)
+    // {
+    //     emailValid = await EmailValidator.verify(req.body.email);
+    // }
    
     check.valid = emailValid.validMailbox;
 

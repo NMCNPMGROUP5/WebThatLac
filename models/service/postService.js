@@ -13,7 +13,19 @@ const postsModel = require("../mongoose/postsModel");
 const itemModel = require("../mongoose/itemModel");
 
 exports.getListPosts = async (req, res, next) => {
-    const listPosts = await itemModel.itemModel.find({})
+    const searchValue = req.query.searchValue || undefined;
+
+    //Tạo ra query search
+    let query= {};
+    
+    if(searchValue!=undefined){
+        const regex =new RegExp(searchValue,"i");
+        query = {$or:[ {description: regex },{area: regex },{fullName: regex },{idCharacteristics: regex}]};
+    }
+
+    console.log(query);
+
+    const listPosts = await itemModel.itemModel.find(query)
         .populate({ path: "idAccount" })
         .exec().then(async (docs) => {
             const options = [{
@@ -25,7 +37,8 @@ exports.getListPosts = async (req, res, next) => {
             //console.log("listPosts: " + result);
             return result;
         });
-
+    
+    console.log(listPosts);
     return listPosts;
 }
 
