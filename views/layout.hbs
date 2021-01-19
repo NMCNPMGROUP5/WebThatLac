@@ -84,10 +84,10 @@
           data-toggle="dropdown" aria-haspopup="true">
             <i class="fas fa-user-circle"></i> Tài khoản</a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <p class="dropdown-item"><b>Hello {{user.name}}!</b></p>
-            <a class="dropdown-item" href="/users/edit/{{user._id}}">Profile</a>
+            <p class="dropdown-item"><b>Xin chào {{user.name}}!</b></p>
+            <a class="dropdown-item" href="/my-account/{{user._id}}">Hồ sơ cá nhân</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="/users/logout">Log out</a>
+            <a class="dropdown-item" href="/users/logout">Đăng xuất</a>
           </div>
         </li>
         {{else}}

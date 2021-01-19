@@ -7,12 +7,14 @@ var expressHbs = require('express-handlebars');
 var hbs_sections = require('express-handlebars-sections');
 const flash = require('connect-flash');
 const session = require("express-session");
+const methodOverride = require('method-override');
 
 
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const mailerRouter = require('./routes/mailer');
+const userAccountRouter = require('./routes/userAccount');
 const connectDB = require('./data/db');
 const passport = require('./passport/passport');
 const postsRouter = require('./routes/posts');
@@ -34,6 +36,9 @@ app.engine('.hbs', expressHbs({
     section: hbs_sections(),
   }
 }))
+
+
+app.use(methodOverride('_method'));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -66,6 +71,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/mail', mailerRouter);
 app.use('/posts', postsRouter);
+app.use('/my-account', userAccountRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

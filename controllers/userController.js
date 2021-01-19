@@ -1,8 +1,16 @@
 const userService = require('../models/service/userService');
 
 exports.displayFormSignIn = (req, res, next) => {
-
-    res.render("signin");
+    let message = "";
+    message = req.flash('error');
+    console.log("req.query.to");
+    console.log(req.body);
+    if (message != "") {
+        res.render("signin", { message, notify: 'block' });
+    }
+    else {
+        res.render("signin", { notify: 'none' });
+    }
 }
 
 
